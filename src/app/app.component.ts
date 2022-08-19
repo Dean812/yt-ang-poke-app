@@ -2,22 +2,18 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  template: `
-    <div style="text-align:center" class="content">
-      <h1>
-        Welcome to {{  pokemonList[0]  }} !
-      </h1>
-    </div>
-  `,
-  styles: []
+  templateUrl: './app.component.html'
 })
 
 export class AppComponent implements OnInit {
   pokemonList = ['Bulbizare', 'Salamèche', 'Carapuce', 'Pikachu'];
 
   ngOnInit() {
+    this.selectPokemon("Electron");
+  }
 
-    console.table(this.pokemonList)
+  selectPokemon(pokemon_name: string) {
+    console.log(`Vous avez cliqué sur ${pokemon_name};`);
 
   }
 
