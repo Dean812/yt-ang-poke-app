@@ -3,10 +3,9 @@
 <h1>Liste de pokémon {{ pokemonList[3].name }} </h1>
 <h1>Liste de pokémon {{ pokemonList[4].name }} </h1>
 <h1>Liste de pokémon {{ pokemonList[5].name }} </h1>
-<!-- affichage via interpolation ▲  -->
-<!--<p (click)="selectPokemon(pokemonList[9])">Click here babe</p>-->
-<!-- affichage via event Biding ▲  -->
 
-<p> Below : utilisation de l'event, avec la event binding > (click)=selectPokemon($event)  </p>
-<input type="number" (click)="selectPokemon($event)" />
-<!-- 1. dans le html , Event biding + methode + $event     -->
+<p> Below : Interaction directe en l'input et l'interpolation </p>
+
+<!-- variables référencées dans le template-->
+<input #input type="text" (keyup)="0" />
+<p> {{ input.value }} </p>
