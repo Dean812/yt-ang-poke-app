@@ -1,17 +1,15 @@
-<h1>Liste de pokémon {{ pokemonList[1].name }} </h1>
-<h1>Liste de pokémon {{ pokemonList[2].name }} </h1>
-<h1>Liste de pokémon {{ pokemonList[3].name }} </h1>
-<h1>Liste de pokémon {{ pokemonList[4].name }} </h1>
-<h1>Liste de pokémon {{ pokemonList[5].name }} </h1>
-
 <p> Below : la dièse level up</p>
 
 <input #input (keyup.enter)="selectPokemon(input.value)" type="number" />
 
+<h3>below : *ngIf</h3>
 <p *ngIf="pokemonSelected">
     Le pokémon "{{ pokemonSelected.name }}" a été selectionné.
 </p>
 <p *ngIf="!pokemonSelected">
     Pas de pokémon selectionné.
 </p>
-
+<h3>below : *ngFor</h3>
+<p *ngFor="let pokemon of pokemonList">
+    {{ pokemon.name }}
+</p>
