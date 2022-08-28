@@ -6,6 +6,7 @@
 
 <p> Below : la dièse level up</p>
 
-<!-- variables référencées dans le template-->
-<input #input (keyup)="selectPokemon(input.value)" type="number" />
+<!-- keyup.enter défini l'action uniquement avec la touche "enter/entrée" du clavier,
+Cela s'appelle les "pseudo evenement" d'angular -->
+<input #input (keyup.enter)="selectPokemon(input.value)" type="number" />
 <p> {{ pokemonSelected?.name }} </p>
