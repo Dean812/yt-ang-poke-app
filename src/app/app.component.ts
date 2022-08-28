@@ -9,8 +9,8 @@ import { Pokemon } from './pokemon';
 
 export class AppComponent implements OnInit {
 
-  pokemonList: Pokemon[] = POKEMONS; // récupération de la liste pokémon dans le mock
-  pokemonSelected: Pokemon | undefined; // attribut de type Pokemon
+  pokemonList: Pokemon[] = POKEMONS;
+  pokemonSelected: Pokemon | undefined;
 
   ngOnInit() {
     console.table(this.pokemonList);
@@ -19,10 +19,10 @@ export class AppComponent implements OnInit {
   selectPokemon(pokemonId: string) {
     const pokemon: Pokemon | undefined = this.pokemonList.find(getPokemon => getPokemon.id == +pokemonId);
 
-    if (pokemon) {   // si Pokemon
+    if (pokemon) {
       console.log(`vous avez cloqué sur le pokémon ${pokemon.name}`);
       this.pokemonSelected = pokemon;
-    } else {    // si undifined
+    } else {
       console.log(`vous avez cloqué sur un pokémon qui n'existe pas`);
 
     }
