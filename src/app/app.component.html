@@ -1,15 +1,31 @@
-<p> Below : la dièse level up</p>
+<div class="container">
+    <p> Below : la dièse level up</p>
 
-<input #input (keyup.enter)="selectPokemon(input.value)" type="number" />
+    <input #input (keyup.enter)="selectPokemon(input.value)" type="number" />
 
-<h3>below : *ngIf</h3>
-<p *ngIf="pokemonSelected">
-    Le pokémon "{{ pokemonSelected.name }}" a été selectionné.
-</p>
-<p *ngIf="!pokemonSelected">
-    Pas de pokémon selectionné.
-</p>
-<h3>below : *ngFor</h3>
-<p *ngFor="let pokemon of pokemonList">
-    {{ pokemon.name }}
-</p>
+    <h3>below : *ngIf</h3>
+    <p *ngIf="pokemonSelected">
+        Le pokémon "{{ pokemonSelected.name }}" a été selectionné.
+    </p>
+    <p *ngIf="!pokemonSelected">
+        Pas de pokémon selectionné.
+    </p>
+    <h3>below : *ngFor , avec materialize (genre de bootstrap) , en utilisant un système de card</h3>
+
+
+    <div class="row">
+        <div *ngFor="let pokemon of pokemonList" class="col s6 m4">
+            <div class="card horizontal">
+                <div class="card-image">
+                    <img src="{{pokemon.picture}}">
+                </div>
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <h4>{{pokemon.name}}</h4>
+                        <p><small>{{pokemon.created}}</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
