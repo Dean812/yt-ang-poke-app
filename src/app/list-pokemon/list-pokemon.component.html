@@ -1,1 +1,21 @@
-<p>list-pokemon works!</p>
+<div class="container">
+    <div class="row">
+        <h2>Balise list-pokemon - route doesn't work </h2>
+        <div *ngFor="let pokemon of pokemonList" class="col s6 m6">
+            <div class="card horizontal">
+                <div class="card-image">
+                    <img alt="{{pokemon.name}}" src="{{pokemon.picture}}">
+                </div>
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <h4>{{pokemon.name}}</h4>
+                        <p><small>{{pokemon.created | date:"dd/MM/yyyy"}} </small></p>
+                        <span *ngFor="let test of pokemon.types" class="{{ test | pokemonTypeColor }}}}">
+                            {{test}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
