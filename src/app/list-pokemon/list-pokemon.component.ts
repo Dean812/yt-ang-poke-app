@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { POKEMONS } from '../mock-pokemon-list';
 import { Pokemon } from '../pokemon';
 
@@ -9,21 +10,12 @@ import { Pokemon } from '../pokemon';
 export class ListPokemonComponent {
 
   pokemonList: Pokemon[] = POKEMONS;
-  pokemonSelected: Pokemon | undefined;
 
-  
-  selectPokemon(pokemonId: string) {
-    const pokemon: Pokemon | undefined = this.pokemonList.find(getPokemon => getPokemon.id == +pokemonId);
+  constructor(private router: Router) { }
 
-    if (pokemon) {
-      console.log(`vous avez cliqué sur le pokémon ${pokemon.name}`);
-      this.pokemonSelected = pokemon;
-    } else {
-      console.log(`vous avez cliqué sur un pokémon qui n'existe pas`);
-
-    }
-
+  goToPokemonList(pokemon: Pokemon) {
+    //Utilisation du routage via un ID > donc  constructeur w/ router et ▼ "navigate"
+    this.router.navigate(['/pokemons', pokemon.id]);
   }
-
 
 }

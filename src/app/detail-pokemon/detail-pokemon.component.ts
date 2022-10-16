@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { POKEMONS } from '../mock-pokemon-list';
 import { Pokemon } from '../pokemon';
 
@@ -12,11 +12,11 @@ export class DetailPokemonComponent implements OnInit {
   pokemonList: Pokemon[] | undefined; // récupération de la liste de pokemon via la classe pokemon sous forme d'array (propriété) 
   pokemon: Pokemon | undefined;  // pokemon courant via la class pokemon, les données récupéré rentrerons dedans
 
-  constructor(private route: ActivatedRoute) { }  //access to router in order to get the ID  (pokemon/id) , injection dans le composant, récupère l'id qui est dans l'url.
+  constructor(private route: ActivatedRoute, private router: Router) { }  //access to router in order to get the ID  (pokemon/id) , injection dans le composant, récupère l'id qui est dans l'url.
 
   ngOnInit() {
 
-    this.pokemonList = POKEMONS;
+    this.pokemonList = POKEMONS;  // ▼ ne pas oublié router dans le constructeur
     const pokemonId: string | null = this.route.snapshot.paramMap.get('id'); // récupération de l'id
     // sapshot : la donnée a l'instant T , paramMap : des paramères  transmit via paramMap ( via un tableau avec tout les paramètres)
     // le service route renvoie un string     -------------           number ou null 
@@ -25,5 +25,12 @@ export class DetailPokemonComponent implements OnInit {
     } // dans this.pokemon, on rentre dans la liste , on cherche s'il y a correspondance  
 
   }
+
+  goToParameterList() {
+    //▼ ne pas oublié l'ajout de router dans le constructeur
+    this.router.navigate(['/pokemons']) // on peut passer l'url mais aussi , en +, ajouter des paramètres
+  }
+
+
 
 }
