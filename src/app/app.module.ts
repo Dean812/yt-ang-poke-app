@@ -8,13 +8,15 @@ import { DetailPokemonComponent } from './detail-pokemon/detail-pokemon.componen
 
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PokemonTypeColorPipe,
     ListPokemonComponent,
-    DetailPokemonComponent
+    DetailPokemonComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
