@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { POKEMONS } from '../mock-pokemon-list';
 import { Pokemon } from '../pokemon';
+import { PokemonService } from '../pokemon.service';
 
 @Component({
   selector: 'app-detail-pokemon',
@@ -9,26 +10,29 @@ import { Pokemon } from '../pokemon';
 })
 export class DetailPokemonComponent implements OnInit {
 
-  pokemonList: Pokemon[] | undefined; // récupération de la liste de pokemon via la classe pokemon sous forme d'array (propriété) 
-  pokemon: Pokemon | undefined;  // pokemon courant via la class pokemon, les données récupéré rentrerons dedans
+  pokemonList: Pokemon[] | undefined;
+  pokemon: Pokemon | undefined;
 
-  constructor(private route: ActivatedRoute, private router: Router) { }  //access to router in order to get the ID  (pokemon/id) , injection dans le composant, récupère l'id qui est dans l'url.
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private pokemonService: PokemonService
+  ) { }
 
   ngOnInit() {
 
-    this.pokemonList = POKEMONS;  // ▼ ne pas oublié router dans le constructeur
-    const pokemonId: string | null = this.route.snapshot.paramMap.get('id'); // récupération de l'id
-    // sapshot : la donnée a l'instant T , paramMap : des paramères  transmit via paramMap ( via un tableau avec tout les paramètres)
-    // le service route renvoie un string     -------------           number ou null 
+    this.pokemonList = POKEMONS;
+    const pokemonId: string | null = this.route.snapshot.paramMap.get('id');
+
     if (pokemonId) {
-      this.pokemon = this.pokemonList.find(pokemon => pokemon.id === +pokemonId); // rappel pokemonId est un string , le + le passe en type number
-    } // dans this.pokemon, on rentre dans la liste , on cherche s'il y a correspondance  
+      //this.pokemon = this.pokemonList.find(pokemon => pokemon.id === +pokemonId);  <<  anciennement
+      this.pokemon = this.pokemonService.getPokemonById(+pokemonId); // rappel , le + c'est pour passer en number 
+    }
 
   }
 
   goToParameterList() {
-    //▼ ne pas oublié l'ajout de router dans le constructeur
-    this.router.navigate(['/pokemons']) // on peut passer l'url mais aussi , en +, ajouter des paramètres
+    this.router.navigate(['/pokemons'])
   }
 
 

@@ -2,7 +2,7 @@
     <div class="row">
         <h2>Component affichage liste complête des pokémons </h2>
         <div *ngFor="let pokemon of pokemonList" class="col s6 m6">
-            <div (click)="goToPokemonList(pokemon)" class="card horizontal" appBorderCard>
+            <div (click)="goToPokemon(pokemon)" class="card horizontal" appBorderCard>
                 <!-- le paramètre "pokemon" est récupéré du ngFor et est repris dansl a méthode dans le TS -->
                 <div class="card-image">
                     <img alt="{{pokemon.name}}" src="{{pokemon.picture}}">
