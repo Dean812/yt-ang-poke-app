@@ -3,8 +3,6 @@ import { POKEMONS } from './mock-pokemon-list';
 import { Pokemon } from './pokemon';
 
 @Injectable()
-  //{providedIn: 'root' }// passage de l'injectable vers le module plutot que root 
- // permet d'être plus précis et de ne pas l'injecter partout
 export class PokemonService {
 
   getPokemonList(): Pokemon[] {
