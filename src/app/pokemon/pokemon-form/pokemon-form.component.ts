@@ -5,7 +5,7 @@ import { PokemonService } from '../pokemon.service';
 
 @Component({
   selector: 'app-pokemon-form',
-  template: 'pokemon-form.component.html',
+  templateUrl: 'pokemon-form.component.html',
   styleUrls: ['pokemon-form.component.css']
 })
 export class PokemonFormComponent implements OnInit {
@@ -25,7 +25,7 @@ export class PokemonFormComponent implements OnInit {
 //gérer la selection du type si modification et le onSubmit 
 
   hasType(type: string): boolean { // l'include vient comparer le type placer en méthode et ceux de la liste
-    return this.pokemon.types.includes(type); // return true ou false
+    return this.pokemon.types.includes(type); 
   }
 
   selectType($event: Event, type: string){  // vérifier l'état du click + gestion du type 
@@ -40,7 +40,7 @@ export class PokemonFormComponent implements OnInit {
     }
   }
 
-isTypeValid(type: string): boolean {
+isTypesValid(type: string): boolean {
 
   if(this.pokemon.types.length == 1 && this.hasType(type)){
     return false;

@@ -11,8 +11,9 @@ import { PokemonFormComponent } from './pokemon-form/pokemon-form.component';
 import { EditPokemonComponent } from './edit-pokemon/edit-pokemon.component';
 
 const pokemonRoutes: Routes = [
+  { path: 'edit/pokemon/:id', component: EditPokemonComponent }, // ▼ route plus précise en haut
   { path: 'pokemons', component: ListPokemonComponent },
-  { path: 'pokemons/:id', component: DetailPokemonComponent },
+  { path: 'pokemons/:id', component: DetailPokemonComponent }, // ▲ au route plus global en bas 
 ]
 
 @NgModule({
