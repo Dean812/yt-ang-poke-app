@@ -49,12 +49,12 @@ isTypesValid(type: string): boolean {
   if(this.pokemon.types.length > 2 && !this.hasType(type)){
     return false;
   }
-return false;
+return true;
 }
 
   onSubmit(){
     console.log('Submit form !');
-    this.router.navigate(['/pokemon',this.pokemon.id])
+    this.router.navigate(['/pokemons',this.pokemon.id])
   }
 
 }
